@@ -212,6 +212,22 @@
 #maryamshop .prodcontent{padding:16px}
 #maryamshop .stripe{margin-top:36px}
 @media(max-width:600px){#maryamshop .head{padding:16px}#maryamshop .nav{padding:0 14px 12px;gap:12px}#maryamshop .hero{margin:14px 13px 27px;min-height:245px}#maryamshop .inside{padding:0 14px 28px}#maryamshop .twoworld{gap:10px}#maryamshop .world{padding:13px;min-height:130px}#maryamshop .worldimage{width:43%;height:75px;bottom:8px}#maryamshop .storyintro{padding:17px;margin:26px 0}#maryamshop .storyimage{height:155px}#maryamshop .catalog{gap:10px}#maryamshop .art{height:125px}#maryamshop .prodcontent{padding:12px}}
+
+#maryamshop .activity-lab{margin:37px 0 25px;padding:22px;border:1px solid #b3a3eb78;border-radius:23px;background:linear-gradient(130deg,#272c63c9,#4f4082b8);color:#fff}
+#maryamshop .activity-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:19px}
+#maryamshop .activity-heading h3{font-size:21px;line-height:1.4;margin:4px 0 6px;color:white}
+#maryamshop .activity-heading p{font-size:12px;color:#e8defc;margin:0;max-width:580px}
+#maryamshop .activity-kicker{color:#fdddaa;font-size:11px;font-weight:bold}
+#maryamshop #activityMore{white-space:nowrap;border:1px solid #ffffff82;color:#fff;background:#ffffff19;border-radius:12px;padding:11px 13px;font-size:11px}
+#maryamshop .activity-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+#maryamshop .activity-item{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-width:0;gap:4px;border:1px solid #f8f3ff5c;border-radius:15px;padding:14px 7px;background:#ffffffeb;color:#29224f;transition:transform .2s}
+#maryamshop .activity-item[hidden]{display:none!important}
+#maryamshop .activity-item b{font-size:12px}
+#maryamshop .activity-item small{color:#716b91;font-size:10px;direction:ltr}
+#maryamshop .activity-icon{font-size:30px}
+#maryamshop .activity-note{color:#dcd4ee;font-size:10px;line-height:1.8;margin:15px 0 0}
+@media(hover:hover){#maryamshop .activity-item:hover{transform:translateY(-3px)}}
+@media(max-width:600px){#maryamshop .activity-lab{padding:16px;margin:26px 0}#maryamshop .activity-heading{align-items:flex-start;flex-direction:column}#maryamshop .activity-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#maryamshop .activity-item{min-height:108px}#maryamshop .activity-heading h3{font-size:18px}}
 </style>
 
 <div class="head">
@@ -246,6 +262,21 @@
 <div class="storycard"><img class="storyimage" src="assets/detective.svg" alt="تصویرسازی ذره‌بین و پرونده کارآگاهی" loading="lazy"><strong>پرونده کارآگاه کوچولو</strong><small>۷–۱۰ سال • سرنخ، تطبیق و رمزگشایی</small><button type="button" data-story="detective">دیدن مراحل</button></div>
 </div>
 </div>
+
+<section class="activity-lab" id="activityLab" aria-label="آزمایشگاه بازی‌های قابل چاپ">
+  <div class="activity-heading"><div><span class="activity-kicker">ایده‌های تازه برای بازی‌های قابل چاپ</span><h3>آزمایشگاه بازی و کشف ✨</h3><p>هر فعالیت می‌تونه بخشی از یک ماجراجویی باشه؛ از کشف یک تصویر مخفی تا باز کردن رمز مرحله بعد.</p></div><button type="button" id="activityMore" aria-expanded="false">دیدن همه ۸ ایده</button></div>
+  <div class="activity-grid">
+    <button type="button" class="activity-item" data-activity="color"><span class="activity-icon">🎨</span><b>رنگ‌آمیزی رمزی</b><small>Color by Code</small></button>
+    <button type="button" class="activity-item" data-activity="mystery"><span class="activity-icon">🔍</span><b>تصویر اسرارآمیز</b><small>Mystery Picture</small></button>
+    <button type="button" class="activity-item" data-activity="cut"><span class="activity-icon">✂️</span><b>ببر و کشف کن</b><small>Cut & Reveal</small></button>
+    <button type="button" class="activity-item" data-activity="fossil"><span class="activity-icon">🦴</span><b>شکار فسیل</b><small>Dino Fossil Hunt</small></button>
+    <button type="button" class="activity-item activity-extra" data-activity="maze" hidden><span class="activity-icon">🛸</span><b>هزارتوی مأموریت</b><small>Mission Maze</small></button>
+    <button type="button" class="activity-item activity-extra" data-activity="magic" hidden><span class="activity-icon">🪄</span><b>رمز جادویی</b><small>Magic Decoder</small></button>
+    <button type="button" class="activity-item activity-extra" data-activity="clue" hidden><span class="activity-icon">🕵️</span><b>سرنخ پنهان</b><small>Spot the Clue</small></button>
+    <button type="button" class="activity-item activity-extra" data-activity="draw" hidden><span class="activity-icon">🎲</span><b>تاس بنداز، نقاشی کن</b><small>Roll & Draw</small></button>
+  </div>
+  <p class="activity-note">این‌ها پیش‌نمایش ایده‌های محصول هستند؛ فایل‌های قابل چاپ هنوز تولید نشده‌اند. نسخه فارسی و انگلیسی در طراحی هر پک پیش‌بینی می‌شود.</p>
+</section>
 <div class="sec" id="shopProducts"><div><h3>محصولات</h3><small id="resultlabel">پیشنهادهای ویژه</small></div><small>نمونه آزمایشی</small></div>
 <input class="search" id="searchText" placeholder="🔎 دنبال چه محصولی می‌گردی؟">
 <div class="filters">
@@ -306,6 +337,17 @@ function showStory(key){const s=stories[key];if(!s)return;openModal(s.title,
 '<ol class="missionlist">'+s.steps.map(v=>'<li>'+v+'</li>').join('')+'</ol>'+
 '<strong>دو نسخه زبانی در برنامه تولید:</strong><div class="languageopts"><span>🇮🇷 فارسی</span><span>🇬🇧 English — '+s.en+'</span></div>'+
 '<p style="font-size:11px;color:#8d829e">نسخه دیجیتال برای چاپ A4 و امکان سفارش چاپی، پس از آماده شدن فایل‌ها عرضه می‌شود. خرید و دانلود این محصول فعلاً فعال نیست.</p>');}
+
+const activityInfo={
+color:['🎨 رنگ‌آمیزی رمزی','Color by Code','کودک ابتدا معمای ساده را حل می‌کند تا رنگ هر بخش را بفهمد. رنگ‌های درست در پایان یک سرنخ تازه برای ادامه داستان نشان می‌دهند.'],
+mystery:['🔍 تصویر اسرارآمیز','Mystery Picture','ابتدا تصویر مخفی است. با رنگ‌کردن خانه‌ها یا وصل‌کردن نقاط براساس راهنما، شخصیت یا شیء گمشده آشکار می‌شود.'],
+cut:['✂️ ببر و کشف کن','Cut & Reveal','قطعه‌ها رنگ می‌شوند، بریده می‌شوند و در جای درست قرار می‌گیرند. تصویر کامل‌شده، نقشه یا رمز مرحله بعد است.'],
+fossil:['🦴 شکار فسیل','Dino Fossil Hunt','کودک استخوان‌های پراکنده را پیدا می‌کند و با چیدن قطعات، اسکلت یک دایناسور را بازسازی می‌کند.'],
+maze:['🛸 هزارتوی مأموریت','Mission Maze','هر مسیر به یک مقصد و مأموریت متفاوت می‌رسد؛ انتخاب کودک تعیین می‌کند در داستان بعد چه اتفاقی می‌افتد.'],
+magic:['🪄 رمز جادویی','Magic Decoder','کودک با تطبیق نمادها و رنگ‌ها یک پیام رمزی را باز می‌کند تا طلسم جنگل را بشکند.'],
+clue:['🕵️ سرنخ پنهان','Spot the Clue','چند تصویر یا کارت شاهد بررسی می‌شود؛ کودک جزئیات متفاوت را پیدا می‌کند و از آن‌ها برای حل پرونده استفاده می‌کند.'],
+draw:['🎲 تاس بنداز، نقاشی کن','Roll & Draw','با هر بار انداختن تاس یک بخش از موجود خیالی، سفینه یا قلعه مشخص می‌شود و در پایان همه یک نقاشی متفاوت دارند.']
+};
 function showCart(){
 const sum=cart.reduce((s,id)=>s+products.find(p=>p.id===id).price,0);
 openModal('🛒 سبد خرید',cart.length?cart.map((id,i)=>{let p=products.find(v=>v.id===id);return `<div class="basketitem"><span>${p.e} ${p.n}<br><small>${fmt(p.price)} تومان</small></span><button data-remove="${i}">حذف</button></div>`}).join('')+`<p style="display:flex;justify-content:space-between;font-weight:bold"><span>جمع سبد</span><span>${fmt(sum)} تومان</span></p><button class="checkout" data-demo>ادامه خرید آزمایشی</button>`:'<p style="text-align:center;padding:28px;color:#999">سبد خرید هنوز خالیه 🪐</p>');
@@ -317,6 +359,8 @@ if(b.dataset.cat){cat=b.dataset.cat;world='all';update();goProducts();}
 if(b.dataset.world){world=world===b.dataset.world?'all':b.dataset.world;cat='all';update();goProducts();}
 if(b.dataset.go==='stories')$('#storyPacks').scrollIntoView({behavior:'smooth',block:'start'});
 if(b.dataset.story)showStory(b.dataset.story);
+if(b.dataset.activity){const a=activityInfo[b.dataset.activity];if(a)openModal(a[0],'<p dir="ltr" style="color:#766b9a">'+a[1]+'</p><p>'+a[2]+'</p><p style="font-size:11px;color:#8a7b9a">ایده در مرحله طراحی است؛ فایل قابل چاپ هنوز آماده نشده.</p>');}
+if(b.id==='activityMore'){const expanded=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',String(expanded));$('.activity-extra').forEach(el=>el.hidden=!expanded);b.textContent=expanded?'نمایش کمتر':'دیدن همه ۸ ایده';}
 if(b.dataset.go==='top')$('#shopTop').scrollIntoView({behavior:'smooth'});
 if(b.id==='explore')goProducts();
 if(b.id==='openCart')showCart();
