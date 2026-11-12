@@ -93,6 +93,20 @@
 #maryamshop .sec h3{font-size:16px}
 }
 @media(max-width:350px){#maryamshop .tiles{grid-template-columns:repeat(2,1fr)}#maryamshop .hero .words{width:85%}#maryamshop .spaceart{opacity:.35}}
+
+#maryamshop .storyintro{background:linear-gradient(110deg,#fff3d9,#f0eaff);border-radius:20px;padding:19px;margin:22px 0}
+#maryamshop .storyintro h3{font-size:20px;margin:3px 0 8px}
+#maryamshop .storyintro p{font-size:12px;color:#625b7d;margin:0 0 14px}
+#maryamshop .storygrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#maryamshop .storycard{background:#fff;border:1px solid #e9dff9;border-radius:15px;padding:13px;display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+#maryamshop .storycard .storyemoji{font-size:37px}
+#maryamshop .storycard strong{font-size:13px}
+#maryamshop .storycard small{font-size:10px;color:#756c8c}
+#maryamshop .storycard button{background:#705cc6;color:white;border:0;border-radius:9px;padding:9px 12px;margin-top:auto;font-size:11px;font-weight:700}
+#maryamshop .missionlist{line-height:2;margin:12px 0;padding-right:23px;font-size:12px}
+#maryamshop .languageopts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+#maryamshop .languageopts span{background:#f2edff;border-radius:9px;padding:7px 10px;font-size:11px}
+@media(max-width:600px){#maryamshop .storygrid{grid-template-columns:1fr}#maryamshop .storycard{display:grid;grid-template-columns:48px 1fr auto;align-items:center}#maryamshop .storycard .storyemoji{grid-row:span 2}#maryamshop .storycard small{grid-column:2}#maryamshop .storycard button{grid-column:3;grid-row:1/span 2}}
 </style>
 <div class="ann">✨ اولین ماجراجویی رایگان! فایل‌های قابل چاپ و کلی سرگرمی</div>
 <div class="head">
@@ -100,7 +114,7 @@
 <button class="cartbtn" id="openCart">🛒 سبد خرید <span id="cartCount">۰</span></button>
 </div>
 <div class="nav">
-<button data-go="top">خانه</button><button data-cat="print">پرینت‌پذیرها</button><button data-cat="pack">پک‌های ترکیبی</button><button data-cat="book">کتاب و قصه</button><button data-cat="toy">بازی و سرگرمی</button>
+<button data-go="top">خانه</button><button data-cat="print">پرینت‌پذیرها</button><button data-go="stories">ماجراجویی‌های داستانی</button><button data-cat="pack">پک‌های ترکیبی</button><button data-cat="book">کتاب و قصه</button><button data-cat="toy">بازی و سرگرمی</button>
 </div>
 <div class="hero" id="shopTop">
 <div class="words">
@@ -123,6 +137,17 @@
 <button class="tile" data-cat="pack"><span>🎨</span>پک فعالیت</button>
 <button class="tile" data-cat="book"><span>📚</span>کتاب و قصه</button>
 <button class="tile" data-cat="toy"><span>🧩</span>بازی و پازل</button>
+</div>
+
+<div class="storyintro" id="storyPacks">
+<span class="tagline" style="background:#6f5bc6;color:white">🎮 مجموعه جدید | بازی‌های داستانی قابل چاپ</span>
+<h3>هر پک، یک داستان و چند مأموریت!</h3>
+<p>کودک با حل معما، ساختن وسایل و پیدا کردن سرنخ‌ها داستان را پیش می‌برد. برای هر محصول نسخه فارسی و انگلیسی در نظر گرفته شده؛ طراحی فایل‌های نهایی در مرحله تولید است.</p>
+<div class="storygrid">
+<div class="storycard"><span class="storyemoji">🚀</span><strong>مأموریت سیاره گمشده</strong><small>۵–۸ سال • مسیریابی، رمز و ساخت سفینه</small><button type="button" data-story="space">دیدن مراحل</button></div>
+<div class="storycard"><span class="storyemoji">🦕</span><strong>نجات تخم دایناسورها</strong><small>۴–۷ سال • جست‌وجو، جورچین و برش کاغذ</small><button type="button" data-story="dino">دیدن مراحل</button></div>
+<div class="storycard"><span class="storyemoji">🕵️</span><strong>پرونده کارآگاه کوچولو</strong><small>۷–۱۰ سال • سرنخ، تطبیق و رمزگشایی</small><button type="button" data-story="detective">دیدن مراحل</button></div>
+</div>
 </div>
 <div class="sec" id="shopProducts"><div><h3>محصولات کوچولوی ما</h3><small id="resultlabel">پیشنهادهای ویژه</small></div><small>قیمت‌ها نمونه هستند</small></div>
 <input class="search" id="searchText" placeholder="🔎 دنبال چه محصولی می‌گردی؟">
@@ -153,7 +178,10 @@ const products=[
 {id:9,n:'پک کشف دایناسورها',e:'🦖',c:'pack',w:'dino',a:[4,9],price:99000,bg:'#f9e4cd',d:'بازی، قصه و کاردستی قابل چاپ',digital:true},
 {id:10,n:'کتاب دایناسور کوچولو',e:'📖',c:'book',w:'dino',a:[3,7],price:125000,bg:'#e7f1d9',d:'داستان مصور دوستی و مهربانی'},
 {id:11,n:'پک آزمایشگاه فضایی',e:'🔭',c:'pack',w:'space',a:[7,10],price:99000,bg:'#e3e4ff',d:'فعالیت‌های علمی و سرگرمی',digital:true},
-{id:12,n:'برگه رنگ‌آمیزی رایگان',e:'🌈',c:'print',w:'general',a:[3,10],price:0,bg:'#ffe5f2',d:'نمونه فعالیت‌های کودکانه',digital:true}
+{id:12,n:'برگه رنگ‌آمیزی رایگان',e:'🌈',c:'print',w:'general',a:[3,10],price:0,bg:'#ffe5f2',d:'نمونه فعالیت‌های کودکانه',digital:true},
+{id:13,n:'مأموریت سیاره گمشده',e:'🚀',c:'pack',w:'space',a:[5,8],price:0,bg:'#e7e4ff',d:'پک داستانی فارسی / انگلیسی، در حال طراحی',digital:true,comingSoon:true},
+{id:14,n:'نجات تخم دایناسورها',e:'🥚',c:'pack',w:'dino',a:[4,7],price:0,bg:'#e5f6df',d:'پک داستانی فارسی / انگلیسی، در حال طراحی',digital:true,comingSoon:true},
+{id:15,n:'پرونده کارآگاه کوچولو',e:'🕵️',c:'pack',w:'general',a:[7,10],price:0,bg:'#fff0d6',d:'پک داستانی فارسی / انگلیسی، در حال طراحی',digital:true,comingSoon:true}
 ];
 let cat='all',world='all',cart=[];
 const $=s=>root.querySelector(s),$$=s=>root.querySelectorAll(s),fmt=n=>n.toLocaleString('fa-IR');
@@ -162,13 +190,25 @@ function update(){
 const age=$('#ageSelect').value,q=$('#searchText').value.trim().toLowerCase();
 let ranges={3:[3,4],5:[5,6],7:[7,8],9:[9,10]},r=ranges[age]||[3,10];
 let show=products.filter(p=>(cat==='all'||p.c===cat)&&(world==='all'||p.w===world||p.w==='general')&&p.a[0]<=r[1]&&p.a[1]>=r[0]&&(p.n+' '+p.d).toLowerCase().includes(q));
-$('#catalog').innerHTML=show.length?show.map(p=>`<div class="product"><div class="art" style="--bg:${p.bg}"><span class="mark">${p.price===0?'🎁 رایگان':p.digital?'⬇ دانلودی':'📦 فیزیکی'}</span><span class="emoji">${p.e}</span></div><div class="prodcontent"><small>مناسب ${fmt(p.a[0])} تا ${fmt(p.a[1])} سال</small><h4>${p.n}</h4><p>${p.d}</p><div class="prodfoot"><strong>${p.price===0?'رایگان':fmt(p.price)+' تومان'}</strong><button data-add="${p.id}">${p.price===0?'مشاهده':'افزودن +'}</button></div></div></div>`).join(''):'<div style="grid-column:1/-1;text-align:center;padding:35px;color:#958ca9">محصولی پیدا نشد. فیلتر رو تغییر بده.</div>';
+$('#catalog').innerHTML=show.length?show.map(p=>`<div class="product"><div class="art" style="--bg:${p.bg}"><span class="mark">${p.comingSoon?'🧪 در حال طراحی':p.price===0?'🎁 رایگان':p.digital?'⬇ دانلودی':'📦 فیزیکی'}</span><span class="emoji">${p.e}</span></div><div class="prodcontent"><small>مناسب ${fmt(p.a[0])} تا ${fmt(p.a[1])} سال</small><h4>${p.n}</h4><p>${p.d}</p><div class="prodfoot"><strong>${p.comingSoon?'به‌زودی':p.price===0?'رایگان':fmt(p.price)+' تومان'}</strong><button data-add="${p.id}">${p.comingSoon?'مشاهده ایده':p.price===0?'مشاهده':'افزودن +'}</button></div></div></div>`).join(''):'<div style="grid-column:1/-1;text-align:center;padding:35px;color:#958ca9">محصولی پیدا نشد. فیلتر رو تغییر بده.</div>';
 $('#resultlabel').textContent=fmt(show.length)+' محصول نمایشی';
 $$('.filters button[data-cat]').forEach(b=>b.classList.toggle('on',b.dataset.cat===cat));
 $$('[data-world]').forEach(b=>b.classList.toggle('sel',b.dataset.world===world));
 }
 function toast(t){let el=$('#toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200);}
 function openModal(title,html){$('#modalTitle').textContent=title;$('#modalBody').innerHTML=html;$('#veil').classList.add('active');}
+
+const stories={
+space:{title:'🚀 مأموریت سیاره گمشده',age:'۵ تا ۸ سال',en:'Lost Planet Mission',steps:['پیام کمک از سیاره‌ای ناشناخته را بخوان.','از هزارتوی ستاره‌ها مسیر سفینه را پیدا کن.','قطعه‌های سفینه را ببر و به هم وصل کن.','با شمارش ستاره‌ها رمز دروازه را بساز.','کارت افتخار فضانوردی را کامل کن.']},
+dino:{title:'🦕 نجات تخم دایناسورها',age:'۴ تا ۷ سال',en:'Dino Egg Rescue',steps:['نقشه جنگل دایناسورها را بررسی کن.','ردپاهای درست را پیدا کن.','تخم‌ها را براساس رنگ و اندازه دسته‌بندی کن.','قطعه‌های لانه را ببر و بچسبان.','دایناسورهای کوچولو را به خانه برگردان.']},
+detective:{title:'🕵️ پرونده کارآگاه کوچولو',age:'۷ تا ۱۰ سال',en:'Little Detective Case',steps:['نامه پرونده اسرارآمیز را باز کن.','تفاوت‌های تصویر صحنه را پیدا کن.','کارت‌های شاهدها را با سرنخ‌ها تطبیق بده.','پیام رمزگذاری‌شده را حل کن.','مقصر خیالی را مشخص و نشان کارآگاهی دریافت کن.']}
+};
+function showStory(key){const s=stories[key];if(!s)return;openModal(s.title,
+'<p style="color:#716986">سن پیشنهادی: '+s.age+' • محصول در مرحله طراحی و نمونه‌سازی</p>'+
+'<p>در این پک، مأموریت‌ها به هم متصل‌اند و کودک با انجام هر فعالیت، داستان را ادامه می‌دهد.</p>'+
+'<ol class="missionlist">'+s.steps.map(v=>'<li>'+v+'</li>').join('')+'</ol>'+
+'<strong>دو نسخه زبانی در برنامه تولید:</strong><div class="languageopts"><span>🇮🇷 فارسی</span><span>🇬🇧 English — '+s.en+'</span></div>'+
+'<p style="font-size:11px;color:#8d829e">نسخه دیجیتال برای چاپ A4 و امکان سفارش چاپی، پس از آماده شدن فایل‌ها عرضه می‌شود. خرید و دانلود این محصول فعلاً فعال نیست.</p>');}
 function showCart(){
 const sum=cart.reduce((s,id)=>s+products.find(p=>p.id===id).price,0);
 openModal('🛒 سبد خرید',cart.length?cart.map((id,i)=>{let p=products.find(v=>v.id===id);return `<div class="basketitem"><span>${p.e} ${p.n}<br><small>${fmt(p.price)} تومان</small></span><button data-remove="${i}">حذف</button></div>`}).join('')+`<p style="display:flex;justify-content:space-between;font-weight:bold"><span>جمع سبد</span><span>${fmt(sum)} تومان</span></p><button class="checkout" data-demo>ادامه خرید آزمایشی</button>`:'<p style="text-align:center;padding:28px;color:#999">سبد خرید هنوز خالیه 🪐</p>');
@@ -177,11 +217,13 @@ root.addEventListener('click',e=>{
 let b=e.target.closest('button');if(!b)return;
 if(b.dataset.cat){cat=b.dataset.cat;world='all';update();goProducts();}
 if(b.dataset.world){world=world===b.dataset.world?'all':b.dataset.world;cat='all';update();goProducts();}
+if(b.dataset.go==='stories')$('#storyPacks').scrollIntoView({behavior:'smooth',block:'start'});
+if(b.dataset.story)showStory(b.dataset.story);
 if(b.dataset.go==='top')$('#shopTop').scrollIntoView({behavior:'smooth'});
 if(b.id==='explore')goProducts();
 if(b.id==='openCart')showCart();
 if(b.id==='closeModal')$('#veil').classList.remove('active');
-if(b.dataset.add){let p=products.find(v=>v.id===Number(b.dataset.add));if(p.price===0)openModal('🎁 هدیه قابل چاپ',`<div style="text-align:center;padding:12px"><div style="font-size:75px">${p.e}</div><h3>${p.n}</h3><p>نسخه نمایشی فایل قابل چاپ</p><button class="checkout" data-demo>دریافت فایل در نسخه نهایی</button></div>`);else{cart.push(p.id);$('#cartCount').textContent=fmt(cart.length);toast('به سبد خرید اضافه شد 🎈');}}
+if(b.dataset.add){let p=products.find(v=>v.id===Number(b.dataset.add));if(p.comingSoon){showStory(p.id===13?'space':p.id===14?'dino':'detective');}else if(p.price===0)openModal('🎁 هدیه قابل چاپ',`<div style="text-align:center;padding:12px"><div style="font-size:75px">${p.e}</div><h3>${p.n}</h3><p>نسخه نمایشی فایل قابل چاپ</p><button class="checkout" data-demo>دریافت فایل در نسخه نهایی</button></div>`);else{cart.push(p.id);$('#cartCount').textContent=fmt(cart.length);toast('به سبد خرید اضافه شد 🎈');}}
 if(b.dataset.remove!==undefined){cart.splice(Number(b.dataset.remove),1);$('#cartCount').textContent=fmt(cart.length);showCart();}
 if(b.hasAttribute('data-demo'))toast('درگاه پرداخت و دانلود هنوز راه‌اندازی نشده‌اند.');
 });
