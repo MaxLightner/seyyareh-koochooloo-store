@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>سیاره کوچولو | فروشگاه آزمایشی مریم</title>
 <meta name="description" content="پیش‌نمایش فروشگاه سیاره کوچولو؛ بازی، کتاب و فعالیت‌های خلاقانه کودکان ۳ تا ۱۰ سال.">
-<style>body{margin:0;background:#fbf9ff}#maryamshop{max-width:1100px;margin:auto}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #b8860b;outline-offset:3px}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}</style>
+<style>body{margin:0;background:#151632}#maryamshop{max-width:1100px;margin:auto}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #b8860b;outline-offset:3px}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}</style>
 </head>
 <body>
-<div id="maryamshop" dir="rtl">
+<div id="maryamshop" dir="rtl"><div class="cosmic-sky" aria-hidden="true"><i class="meteor m1"></i><i class="meteor m2"></i><i class="meteor m3"></i><i class="starcloud"></i></div>
 <style>
 #maryamshop{font-family:Tahoma,Arial,sans-serif;color:#26264e;background:#fbf9ff;border-radius:18px;overflow:hidden;--purple:#6f5bc6;font-size:13px;line-height:1.65}
 #maryamshop *{box-sizing:border-box}
@@ -107,6 +107,65 @@
 #maryamshop .languageopts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 #maryamshop .languageopts span{background:#f2edff;border-radius:9px;padding:7px 10px;font-size:11px}
 @media(max-width:600px){#maryamshop .storygrid{grid-template-columns:1fr}#maryamshop .storycard{display:grid;grid-template-columns:48px 1fr auto;align-items:center}#maryamshop .storycard .storyemoji{grid-row:span 2}#maryamshop .storycard small{grid-column:2}#maryamshop .storycard button{grid-column:3;grid-row:1/span 2}}
+
+/* Celestial playground — original CSS illustration system */
+#maryamshop{position:relative;isolation:isolate;max-width:1100px;margin:0 auto;background:transparent!important;color:#f7f4ff!important;border-radius:0}
+#maryamshop .cosmic-sky{position:absolute;z-index:-1;inset:0;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 14% 18%,#653d9e 0%,transparent 31%),radial-gradient(ellipse at 83% 42%,#286a87 0%,transparent 34%),radial-gradient(ellipse at 20% 77%,#49358c 0%,transparent 32%),linear-gradient(160deg,#17193c 0%,#24234f 54%,#151832 100%)}
+#maryamshop .starcloud{position:absolute;inset:0;background-image:radial-gradient(circle,#fff 1px,transparent 1.5px),radial-gradient(circle,#b8d9ff 1.2px,transparent 1.7px),radial-gradient(circle,#ffe5a2 .9px,transparent 1.5px);background-size:97px 113px,157px 139px,191px 173px;background-position:4px 7px,47px 67px,21px 80px;opacity:.58;animation:cosmicTwinkle 7s ease-in-out infinite alternate}
+#maryamshop .meteor{position:absolute;width:3px;height:3px;border-radius:50%;background:#fffaf0;box-shadow:0 0 11px 3px #ffe3a8;z-index:1;opacity:0;transform:rotate(-28deg)}
+#maryamshop .meteor:after{content:'';position:absolute;right:3px;top:1px;width:100px;height:2px;background:linear-gradient(to right,transparent,#fff0bc);transform-origin:right center}
+#maryamshop .m1{top:7%;left:88%;animation:meteorDash 12s linear 2s infinite}
+#maryamshop .m2{top:35%;left:95%;animation:meteorDash 17s linear 9s infinite}
+#maryamshop .m3{top:76%;left:80%;animation:meteorDash 19s linear 5s infinite}
+@keyframes meteorDash{0%,87%{opacity:0;translate:0 0}88%{opacity:1}93%{opacity:1;translate:-250px 125px}95%,100%{opacity:0;translate:-300px 150px}}
+@keyframes cosmicTwinkle{from{opacity:.32}to{opacity:.72}}
+#maryamshop .head,#maryamshop .nav{background:#201c47e8!important;color:#f8f4ff;backdrop-filter:blur(12px)}
+#maryamshop .brand{color:#fff}
+#maryamshop .brandicon{background:linear-gradient(140deg,#7255d2,#3f96bd);animation:softFloat 4s ease-in-out infinite}
+#maryamshop .nav button{color:#dad4ff!important}
+#maryamshop .nav button:hover{color:#ffe4ab!important}
+#maryamshop .ann{background:#39306d!important}
+#maryamshop .hero{background:radial-gradient(circle at 72% 60%,#7955a4 0%,transparent 43%),linear-gradient(115deg,#4b3b99,#222a64)!important;border:1px solid #b0a6ec85;box-shadow:0 20px 45px #090d2d70}
+#maryamshop .hero .spaceart{animation:softFloat 4.6s ease-in-out infinite}
+@keyframes softFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+#maryamshop .sec h3,#maryamshop .sec small{color:#fff!important}
+#maryamshop .world{transition:transform .25s,box-shadow .25s;min-height:135px;border-radius:20px;border:1px solid #ffffff6b}
+#maryamshop .world.space{background:linear-gradient(130deg,#b5b3ff,#e0cfff)}
+#maryamshop .world.dino{background:linear-gradient(130deg,#a7f0be,#e0f6bd)}
+#maryamshop .world .wemoji{font-size:62px;animation:softFloat 3.4s ease-in-out infinite;filter:drop-shadow(0 7px 5px #34315b40)}
+#maryamshop .world b{color:#262452;font-size:16px}
+#maryamshop .world.sel{outline:3px solid #ffe6a6;box-shadow:0 0 22px #fbe1ab80}
+#maryamshop .tile{background:#ffffffed;border:1px solid #c4b4ff;border-radius:17px;transition:transform .2s}
+#maryamshop .tile span{display:block;animation:softFloat 3.5s ease-in-out infinite}
+#maryamshop .tile:nth-child(2) span{animation-delay:.8s}#maryamshop .tile:nth-child(3) span{animation-delay:1.5s}
+#maryamshop .search{background:#fffcff;color:#2b2350}
+#maryamshop .filters button,#maryamshop .filters select{background:#f9f5ff;color:#4d3b77}
+#maryamshop .product{background:#fffdff;border-color:#ffffff90;box-shadow:0 12px 22px #06092250;transition:transform .22s}
+#maryamshop .art{overflow:hidden;isolation:isolate}
+#maryamshop .art:before{content:'';position:absolute;width:105px;height:105px;border-radius:50%;background:#fff7;border:2px solid #ffffffaa;box-shadow:0 0 0 17px #ffffff24;transform:rotate(-20deg)}
+#maryamshop .art:after{content:'✦  ✧   ✦';position:absolute;top:12px;left:14px;color:#fff;font-size:19px;text-shadow:0 1px 4px #57488a;letter-spacing:7px}
+#maryamshop .art .emoji{position:relative;z-index:1;font-size:66px;animation:cardFloat 4s ease-in-out infinite;filter:drop-shadow(0 13px 7px #312b3940)}
+#maryamshop .product:nth-child(3n+2) .emoji{animation-delay:-1.5s}
+#maryamshop .product:nth-child(3n+3) .emoji{animation-delay:-2.8s}
+@keyframes cardFloat{0%,100%{transform:translateY(2px) rotate(-5deg)}50%{transform:translateY(-8px) rotate(5deg)}}
+#maryamshop .art .mark{z-index:2}
+#maryamshop .storyintro{background:linear-gradient(120deg,#f1e2ff,#c4ecfa)!important;border:2px solid #e8e0ff}
+#maryamshop .storyintro h3{color:#302450}
+#maryamshop .storycard{box-shadow:0 10px 24px #3c2c7630;transition:transform .22s}
+#maryamshop .storyemoji{display:inline-block;animation:cardFloat 4s ease-in-out infinite}
+#maryamshop .stripe{background:#ebe4ff!important;color:#332a69}
+#maryamshop .footer{background:#1b193e}
+#maryamshop .characterpick{background:#ffffffed;border-radius:20px;padding:16px;margin-top:17px;color:#2b2751}
+#maryamshop .characterpick h3{font-size:17px;margin:0 0 5px}
+#maryamshop .characterpick p{font-size:11px;color:#706a8c;margin:0 0 12px}
+#maryamshop .charactergrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+#maryamshop .charactergrid button{min-width:0;border:2px solid #e6dff7;background:#f6f1ff;border-radius:15px;padding:10px 6px;display:flex;align-items:center;flex-direction:column;gap:4px;color:#413777;font-size:11px;font-weight:800}
+#maryamshop .charactergrid button span{font-size:35px;animation:softFloat 4s ease-in-out infinite}
+#maryamshop .charactergrid button[aria-pressed=true]{background:#dfd5ff;border-color:#6956c9}
+#maryamshop .hero .tagline{color:white}
+@media(hover:hover){#maryamshop .product:hover,#maryamshop .world:hover,#maryamshop .tile:hover,#maryamshop .storycard:hover{transform:translateY(-4px)}}
+@media(max-width:600px){#maryamshop .charactergrid{grid-template-columns:repeat(2,minmax(0,1fr))}#maryamshop .charactergrid button{flex-direction:row;justify-content:center}#maryamshop .charactergrid button span{font-size:28px}#maryamshop .art .emoji{font-size:56px}}
+@media(prefers-reduced-motion:reduce){#maryamshop .meteor,#maryamshop .starcloud,#maryamshop .emoji,#maryamshop .spaceart,#maryamshop .wemoji,#maryamshop .storyemoji,#maryamshop .charactergrid span,#maryamshop .tile span,#maryamshop .brandicon{animation:none!important}}
 </style>
 <div class="ann">✨ اولین ماجراجویی رایگان! فایل‌های قابل چاپ و کلی سرگرمی</div>
 <div class="head">
@@ -131,7 +190,10 @@
 <button class="world space" data-world="space"><b>🚀 دنیای فضایی</b><small>سفر به سیاره‌های ناشناخته</small><span class="wemoji">🪐</span></button>
 <button class="world dino" data-world="dino"><b>🦕 دنیای دایناسورها</b><small>ماجراجویی با غول‌های مهربون</small><span class="wemoji">🦖</span></button>
 </div>
-<div class="sec"><h3>بیا یه دنیا رو کشف کنیم! ✨</h3></div>
+<section class="characterpick" aria-label="انتخاب شخصیت ماجراجویی">
+<h3>✨ دوست داری امروز چه کسی باشی؟</h3><p>شخصیت محبوبت رو انتخاب کن تا ماجراجویی‌های مرتبط رو ببینی. این انتخاب برای همه بچه‌هاست.</p>
+<div class="charactergrid"><button type="button" data-character="space" aria-pressed="false"><span>👩‍🚀</span>فضانورد</button><button type="button" data-character="dino" aria-pressed="false"><span>🦕</span>دینوشناس</button><button type="button" data-character="detective" aria-pressed="false"><span>🕵️</span>کارآگاه</button><button type="button" data-character="all" aria-pressed="true"><span>🌟</span>همه ماجراجویی‌ها</button></div>
+</section><div class="sec"><h3>بیا یه دنیا رو کشف کنیم! ✨</h3></div>
 <div class="tiles">
 <button class="tile" data-cat="print"><span>🖨️</span>قابل چاپ</button>
 <button class="tile" data-cat="pack"><span>🎨</span>پک فعالیت</button>
@@ -183,17 +245,18 @@ const products=[
 {id:14,n:'نجات تخم دایناسورها',e:'🥚',c:'pack',w:'dino',a:[4,7],price:0,bg:'#e5f6df',d:'پک داستانی فارسی / انگلیسی، در حال طراحی',digital:true,comingSoon:true},
 {id:15,n:'پرونده کارآگاه کوچولو',e:'🕵️',c:'pack',w:'general',a:[7,10],price:0,bg:'#fff0d6',d:'پک داستانی فارسی / انگلیسی، در حال طراحی',digital:true,comingSoon:true}
 ];
-let cat='all',world='all',cart=[];
+let cat='all',world='all',cart=[],character='all';
 const $=s=>root.querySelector(s),$$=s=>root.querySelectorAll(s),fmt=n=>n.toLocaleString('fa-IR');
 function goProducts(){ $('#shopProducts').scrollIntoView({behavior:'smooth',block:'start'}); }
 function update(){
 const age=$('#ageSelect').value,q=$('#searchText').value.trim().toLowerCase();
 let ranges={3:[3,4],5:[5,6],7:[7,8],9:[9,10]},r=ranges[age]||[3,10];
-let show=products.filter(p=>(cat==='all'||p.c===cat)&&(world==='all'||p.w===world||p.w==='general')&&p.a[0]<=r[1]&&p.a[1]>=r[0]&&(p.n+' '+p.d).toLowerCase().includes(q));
+let show=products.filter(p=>(cat==='all'||p.c===cat)&&(world==='all'||p.w===world||p.w==='general')&&(character==='all'||(character==='detective'?p.id===15:(p.w===character||p.w==='general')))&&p.a[0]<=r[1]&&p.a[1]>=r[0]&&(p.n+' '+p.d).toLowerCase().includes(q));
 $('#catalog').innerHTML=show.length?show.map(p=>`<div class="product"><div class="art" style="--bg:${p.bg}"><span class="mark">${p.comingSoon?'🧪 در حال طراحی':p.price===0?'🎁 رایگان':p.digital?'⬇ دانلودی':'📦 فیزیکی'}</span><span class="emoji">${p.e}</span></div><div class="prodcontent"><small>مناسب ${fmt(p.a[0])} تا ${fmt(p.a[1])} سال</small><h4>${p.n}</h4><p>${p.d}</p><div class="prodfoot"><strong>${p.comingSoon?'به‌زودی':p.price===0?'رایگان':fmt(p.price)+' تومان'}</strong><button data-add="${p.id}">${p.comingSoon?'مشاهده ایده':p.price===0?'مشاهده':'افزودن +'}</button></div></div></div>`).join(''):'<div style="grid-column:1/-1;text-align:center;padding:35px;color:#958ca9">محصولی پیدا نشد. فیلتر رو تغییر بده.</div>';
 $('#resultlabel').textContent=fmt(show.length)+' محصول نمایشی';
 $$('.filters button[data-cat]').forEach(b=>b.classList.toggle('on',b.dataset.cat===cat));
-$$('[data-world]').forEach(b=>b.classList.toggle('sel',b.dataset.world===world));
+$('[data-world]').forEach(b=>b.classList.toggle('sel',b.dataset.world===world));
+$('[data-character]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.character===character)));
 }
 function toast(t){let el=$('#toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200);}
 function openModal(title,html){$('#modalTitle').textContent=title;$('#modalBody').innerHTML=html;$('#veil').classList.add('active');}
@@ -215,8 +278,9 @@ openModal('🛒 سبد خرید',cart.length?cart.map((id,i)=>{let p=products.fi
 }
 root.addEventListener('click',e=>{
 let b=e.target.closest('button');if(!b)return;
-if(b.dataset.cat){cat=b.dataset.cat;world='all';update();goProducts();}
-if(b.dataset.world){world=world===b.dataset.world?'all':b.dataset.world;cat='all';update();goProducts();}
+if(b.dataset.cat){cat=b.dataset.cat;world='all';character='all';update();goProducts();}
+if(b.dataset.character){character=b.dataset.character;world='all';cat='all';update();goProducts();}
+if(b.dataset.world){world=world===b.dataset.world?'all':b.dataset.world;cat='all';character='all';update();goProducts();}
 if(b.dataset.go==='stories')$('#storyPacks').scrollIntoView({behavior:'smooth',block:'start'});
 if(b.dataset.story)showStory(b.dataset.story);
 if(b.dataset.go==='top')$('#shopTop').scrollIntoView({behavior:'smooth'});
