@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>سیاره کوچولو | کاربرگ‌های ماجراجویی قابل چاپ</title>
+<style>
+:root{font-family:Tahoma,Arial,sans-serif;color:#273047;background:#eef0f8}*{box-sizing:border-box}
+body{margin:0}.toolbar{position:sticky;top:0;z-index:4;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:14px;background:#211e4c;color:#fff;box-shadow:0 4px 18px #16173d33}
+.toolbar label{font-size:12px}.toolbar select,.toolbar button{font:inherit;border:0;border-radius:10px;padding:9px 12px;min-height:42px}
+.toolbar button{background:#f9cf81;color:#262145;font-weight:bold;cursor:pointer}
+.toolbar select{background:white;color:#252342}.toolbar small{color:#e0d9ff}
+.sheet{width:min(210mm,calc(100% - 28px));min-height:297mm;margin:18px auto;padding:15mm;background:white;box-shadow:0 9px 35px #17142b20;position:relative;break-after:page;overflow:hidden}
+.sheet:last-child{break-after:auto}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:3px solid var(--accent);padding-bottom:12px}
+.logo{font-size:15px;font-weight:900}.eyebrow{font-size:12px;color:var(--accent);font-weight:800}.sheet h1{font-size:30px;margin:23px 0 8px;line-height:1.55}.sheet h2{font-size:24px;margin:20px 0 10px}.sheet p{font-size:15px;line-height:2;color:#414962}
+.hero-art{height:310px;border-radius:26px;margin:24px 0;background:var(--soft);display:grid;place-items:center;overflow:hidden}
+.hero-art svg{width:100%;height:100%}
+.mission-box{background:var(--soft);border-radius:17px;padding:18px;margin:14px 0 22px;font-size:15px;line-height:2}
+.name-line{border-bottom:2px dashed #aaa;padding:14px 5px;font-size:14px;margin-top:28px}
+.footer{position:absolute;bottom:13mm;left:15mm;right:15mm;display:flex;align-items:center;justify-content:space-between;font-size:10px;color:#8d90a2}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}.legend span{display:flex;align-items:center;gap:6px;font-size:13px;background:#f2f3f6;border-radius:9px;padding:7px 12px}.legend i{display:inline-block;width:18px;height:18px;border:1px solid #8f93a2;border-radius:5px}
+.puzzle{width:min(100%,480px);margin:15px auto}.puzzle svg{display:block;width:100%;height:auto}
+.rule{padding:14px;border:1px solid #d6d7e1;border-radius:12px;background:#fafbff}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}.cutcard{border:2px dashed #8e94a9;border-radius:14px;padding:22px;text-align:center;min-height:122px}.cutcard .shape{font-size:38px;color:var(--accent);font-weight:900}.cutcard div:last-child{font-size:13px;margin-top:7px}
+.badge{margin:50px auto 0;max-width:350px;border:5px double var(--accent);border-radius:30px;padding:25px;text-align:center;background:var(--soft)}.badge strong{display:block;font-size:27px;margin:10px 0}
+@page{size:A4;margin:0}
+@media print{
+html,body{background:white!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+.toolbar{display:none!important}.sheet{width:210mm;height:297mm;margin:0;padding:15mm;box-shadow:none;break-after:page;page-break-after:always}
+.sheet:last-child{break-after:auto;page-break-after:auto}
+}
+@media(max-width:650px){.sheet{min-height:0;padding:25px 20px 70px;margin:12px auto}.sheet h1{font-size:24px}.sheet h2{font-size:20px}.hero-art{height:250px}.footer{bottom:20px;left:20px;right:20px}.toolbar small{width:100%;text-align:center}}
+</style></head>
+<body>
+<div class="toolbar"><strong>🪐 سیاره کوچولو</strong><label for="pack">ماجراجویی:</label>
+<select id="pack"><option value="space">فضانورد کوچولو</option><option value="dino">ماجراجوی دایناسورها</option><option value="detective">کارآگاه کوچولو</option><option value="forest">جادوگر جنگل</option></select>
+<label for="lang">زبان:</label><select id="lang"><option value="fa">فارسی</option><option value="en">English</option></select>
+<button type="button" id="print">🖨️ چاپ / ذخیره PDF</button>
+<small>۴ صفحه A4 • نمونه رایگان قابل چاپ</small></div>
+<main id="sheets" aria-live="polite"></main>
+<script>
+(function(){
+'use strict';
+const root=document.getElementById('sheets');
+const q=new URLSearchParams(location.search),packSelect=document.getElementById('pack'),langSelect=document.getElementById('lang');
+const packs={
+space:{fa:'فضانورد کوچولو',en:'Little Astronaut',subtitleFA:'ماموریت سیاره گمشده',subtitleEN:'The Lost Planet Mission',heroFA:'پیام کمک از یک سیاره ناشناخته رسیده! سفینه را آماده کن، نشانه‌ها را رمزگشایی کن و مسیر درست را پیدا کن.',heroEN:'A message arrived from a lost planet! Prepare your rocket, decode the signals, and find the right path.',bg:'#e7edff',accent:'#5d65c9',shape:'star',cardsFA:['ستاره','سیاره','موشک','ماه'],cardsEN:['STAR','PLANET','ROCKET','MOON'],stepFA:'با کمک راهنمای رنگ‌ها، تصویر رمزدار را آشکار کن.',stepEN:'Use the color key to reveal the hidden picture.'},
+dino:{fa:'ماجراجوی دایناسورها',en:'Dino Explorer',subtitleFA:'نجات تخم‌های گمشده',subtitleEN:'Rescue the Lost Eggs',heroFA:'چهار تخم دایناسور از لانه ناپدید شده‌اند. ردپاها را دنبال کن، معماها را حل کن و آن‌ها را به خانه برگردان.',heroEN:'Four dinosaur eggs are missing! Follow the tracks, solve the puzzles, and bring them home.',bg:'#e2f3dd',accent:'#3f9786',shape:'egg',cardsFA:['تخم','ردپا','برگ','فسیل'],cardsEN:['EGG','TRACK','LEAF','FOSSIL'],stepFA:'رنگ‌آمیزی رمزی را انجام بده تا تخم مخفی پیدا شود.',stepEN:'Solve the color-by-code puzzle to find the hidden egg.'},
+detective:{fa:'کارآگاه کوچولو',en:'Little Detective',subtitleFA:'پرونده رمز گمشده',subtitleEN:'The Missing Code',heroFA:'یک نامه عجیب به دستت رسیده. سرنخ‌های پنهان را کشف کن، رمز را پیدا کن و پرونده را ببند.',heroEN:'A strange letter has arrived. Find the hidden clues, crack the code, and solve the case.',bg:'#fff0d7',accent:'#c28240',shape:'glass',cardsFA:['ذره‌بین','کلید','نامه','ردپا'],cardsEN:['GLASS','KEY','LETTER','TRACK'],stepFA:'کد رنگ‌ها را دنبال کن تا سرنخ مخفی ظاهر شود.',stepEN:'Follow the color code to reveal a secret clue.'},
+forest:{fa:'جادوگر جنگل',en:'Forest Wizard',subtitleFA:'طلسم ستاره‌های جنگل',subtitleEN:'The Forest Star Spell',heroFA:'ستاره‌های جنگل جادویی خاموش شده‌اند! نشانه‌ها را پیدا کن و با حل مأموریت‌ها جادو را برگردان.',heroEN:'The stars in the magic forest have gone dark! Find the symbols and solve the missions to bring back the magic.',bg:'#e9e3f9',accent:'#8c63b6',shape:'tree',cardsFA:['برگ','ستاره','قارچ','عصا'],cardsEN:['LEAF','STAR','MUSHROOM','WAND'],stepFA:'خانه‌ها را با کد رنگ کن تا نماد طلسم مشخص شود.',stepEN:'Color each square using the key to reveal the magic symbol.'}
+};
+const dictionary={
+fa:{welcome:'به ماجراجویی خوش آمدی!',mission:'داستان ماجرا',name:'نام قهرمان:',p2:'ماموریت ۱: تصویر مخفی',p3:'ماموریت ۲: هزارتوی مسیر',p4:'ماموریت ۳: کارت‌ها و جایزه',intro:'این بسته نمونه برای چاپ خانگی A4 طراحی شده است. قیچی را فقط با کمک بزرگ‌ترها استفاده کن.',colors:['آبی','سبز','صورتی','زرد'],maze:'از خانه شروع به مقصد برس؛ خطی بکش که از دیوارها عبور نکند.',start:'شروع',end:'پایان',cut:'کارت‌ها را از خط‌چین ببر و با آن‌ها داستان خودت را تعریف کن.',badge:'نشان قهرمان ماجراجویی',success:'من مأموریت‌ها را انجام دادم!',sign:'امضای بزرگ‌تر:',footer:'سیاره کوچولو • نمونه قابل چاپ • برای استفاده شخصی'},
+en:{welcome:'Welcome to the adventure!',mission:'Your mission',name:'Explorer name:',p2:'MISSION 1: Secret Picture',p3:'MISSION 2: Path Maze',p4:'MISSION 3: Cards & Reward',intro:'A free A4 home-print sample. Ask a grown-up for help with scissors.',colors:['Blue','Green','Pink','Yellow'],maze:'Draw a path from START to FINISH without crossing the walls.',start:'START',end:'FINISH',cut:'Cut along the dashed lines. Use the cards to tell your own story.',badge:'Adventure Hero Award',success:'I completed every mission!',sign:'Grown-up signature:',footer:'Siyareh Koochooloo • Printable sample • Personal use'}
+};
+function esc(t){return String(t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function banner(p){let a=p.accent,b=p.bg;return '<svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="640" height="320" fill="'+b+'"/><circle cx="482" cy="94" r="78" fill="'+a+'" opacity=".16"/><circle cx="125" cy="230" r="105" fill="'+a+'" opacity=".16"/><g fill="'+a+'" opacity=".7"><circle cx="98" cy="57" r="7"/><circle cx="564" cy="240" r="10"/><path d="M551 38l8 20 20 8-20 8-8 20-8-20-20-8 20-8z"/></g>'+figure(p.shape,a)+'</svg>';}
+function figure(shape,c){
+if(shape==='star')return '<g transform="translate(330 155)"><path d="M0-110C-50-75-59 3-45 58L0 85 45 58C59 3 50-75 0-110" fill="#fff" stroke="'+c+'" stroke-width="9"/><path d="M-36-64Q0-124 36-64" fill="'+c+'"/><circle cy="-20" r="34" fill="#b7e7ef" stroke="'+c+'" stroke-width="9"/><path d="M-46 16l-42 44 43-6m91-38 42 44-43-6" fill="#f4a0aa"/><path d="M-23 84L0 136 23 84" fill="#f8c875"/></g>';
+if(shape==='egg')return '<g transform="translate(310 165)"><path d="M0-113C-98-113-132 15-91 89  -58 147 59 147 92 89 132 15 98-113 0-113Z" fill="#fff7d7" stroke="'+c+'" stroke-width="9"/><path d="M-90 16l32 24 26-21 33 25 28-26 31 23 30-23" stroke="'+c+'" stroke-width="8" fill="none"/><circle cx="-29" cy="-33" r="12" fill="'+c+'"/><circle cx="32" cy="-51" r="9" fill="'+c+'"/><circle cx="22" cy="78" r="18" fill="#f9b7a1"/></g>';
+if(shape==='glass')return '<g transform="translate(302 145) rotate(-22)"><circle r="88" fill="#b5e3e4" stroke="'+c+'" stroke-width="24"/><circle cx="-28" cy="-20" r="22" fill="#fff" opacity=".65"/><path d="M59 64l105 123" stroke="#594a70" stroke-width="38" stroke-linecap="round"/></g>';
+return '<g transform="translate(320 164)"><path d="M-32 125L-14-25H14L32 125" fill="#a88267"/><path d="M-113-20L-70-70-88-70-33-130-53-130 0-189 53-130 33-130 88-70 70-70 113-20Z" fill="#8fc9aa" stroke="'+c+'" stroke-width="8"/><path d="M-80-27q80-60 160 0" stroke="#d1e9a5" stroke-width="12" fill="none"/><path d="M104-126l8 24 24 8-24 8-8 24-8-24-24-8 24-8z" fill="#f8da83"/></g>';
+}
+function colorGrid(p,language){const presets={star:['00010000','00111000','01111100','11111110','00111000','01111100','11000110','10000010'],egg:['00111100','01111110','11111111','11111111','11111111','01111110','00111100','00011000'],glass:['00011110','00111111','01111111','01111111','00111110','00011100','00100100','01000010'],tree:['00011000','00111100','01111110','11111111','00111100','01111110','00011000','00011000']};let rows=presets[p.shape],code=[1,2,3,4];let out='<svg viewBox="0 0 480 480" role="img" aria-label="Color by code grid">';
+for(let y=0;y<8;y++)for(let x=0;x<8;x++){const filled=rows[y][x]==='1';const n=filled?code[(x+y)%4]:4;const px=20+x*55,py=20+y*55;out+='<rect x="'+px+'" y="'+py+'" width="55" height="55" fill="white" stroke="#9096a9" stroke-width="1.4"/><text x="'+(px+27.5)+'" y="'+(py+34)+'" font-size="17" text-anchor="middle" fill="#9b9faf">'+n+'</text>';}
+return out+'</svg>';
+}
+function buildMaze(seed,lang){const w=9,h=9,nx=2*w+1,ny=2*h+1;let grid=Array.from({length:ny},()=>Array(nx).fill(1)),seen=Array.from({length:h},()=>Array(w).fill(false)),state=seed;function rnd(n){state=(state*1664525+1013904223)>>>0;return state%n;}
+let stack=[[0,0]];seen[0][0]=true;grid[1][1]=0;while(stack.length){let [x,y]=stack[stack.length-1];const choices=[[1,0],[-1,0],[0,1],[0,-1]].filter(d=>{let a=x+d[0],b=y+d[1];return a>=0&&a<w&&b>=0&&b<h&&!seen[b][a]});if(!choices.length){stack.pop();continue;}let d=choices[rnd(choices.length)],a=x+d[0],b=y+d[1];grid[1+y*2+d[1]][1+x*2+d[0]]=0;grid[1+b*2][1+a*2]=0;seen[b][a]=true;stack.push([a,b]);}
+let svg='<svg viewBox="0 0 485 510" role="img" aria-label="maze"><rect x="3" y="3" width="479" height="479" rx="14" fill="white" stroke="#4b5266" stroke-width="5"/>';const cell=24;for(let y=0;y<ny;y++)for(let x=0;x<nx;x++)if(grid[y][x])svg+='<rect x="'+(14+x*cell)+'" y="'+(14+y*cell)+'" width="'+cell+'" height="'+cell+'" fill="#39415a"/>';svg+='<rect x="38" y="38" width="24" height="24" fill="#b6eec9"/><rect x="422" y="422" width="24" height="24" fill="#ffdba8"/><text x="19" y="505" font-size="12" fill="#39415a">'+(lang==='en'?'START':'START')+'</text><text x="409" y="505" font-size="12" fill="#39415a">FINISH</text></svg>';return svg;}
+function page(h,idx,p,t,body){return '<section class="sheet" style="--accent:'+p.accent+';--soft:'+p.bg+'"><div class="topline"><span class="logo">✦ سیاره کوچولو · Siyareh Koochooloo</span><span class="eyebrow">'+esc(h)+' · '+idx+'/4</span></div>'+body+'<div class="footer"><span>'+esc(t.footer)+'</span><span>'+idx+' / 4</span></div></section>';}
+function render(){const key=packs[packSelect.value]?packSelect.value:'space',p=packs[key],lang=langSelect.value==='en'?'en':'fa',t=dictionary[lang],title=p[lang],subtitle=p[lang==='fa'?'subtitleFA':'subtitleEN'],hero=p[lang==='fa'?'heroFA':'heroEN'],step=p[lang==='fa'?'stepFA':'stepEN'];
+document.documentElement.lang=lang;document.documentElement.dir=lang==='fa'?'rtl':'ltr';document.title=title+' • Siyareh Koochooloo';history.replaceState(null,'','?pack='+key+'&lang='+lang);
+const cover=page(title,1,p,t,'<h1>'+esc(title)+'</h1><div class="eyebrow">'+esc(subtitle)+'</div><div class="hero-art">'+banner(p)+'</div><h2>'+esc(t.welcome)+'</h2><div class="mission-box"><b>'+esc(t.mission)+'</b><br>'+esc(hero)+'</div><p>'+esc(t.intro)+'</p><div class="name-line">'+esc(t.name)+' _______________________________</div>');
+const keys=t.colors.map((color,i)=>'<span><i style="background:'+['#b9dafa','#c3eac6','#f4bfd2','#ffe4a3'][i]+'"></i>'+String(i+1)+' — '+esc(color)+'</span>').join('');
+const coloring=page(title,2,p,t,'<h2>'+esc(t.p2)+'</h2><p>'+esc(step)+'</p><div class="legend">'+keys+'</div><div class="puzzle">'+colorGrid(p,lang)+'</div><div class="rule">✎ '+esc(t.name)+' ________________________________________</div>');
+const maze=page(title,3,p,t,'<h2>'+esc(t.p3)+'</h2><p>'+esc(t.maze)+'</p><div class="puzzle">'+buildMaze({space:11,dino:23,detective:37,forest:49}[key],lang)+'</div><div class="rule">✎ '+esc(t.name)+' ________________________________________</div>');
+const cards=page(title,4,p,t,'<h2>'+esc(t.p4)+'</h2><p>'+esc(t.cut)+'</p><div class="card-grid">'+p[lang==='fa'?'cardsFA':'cardsEN'].map((c,i)=>'<div class="cutcard"><div class="shape">'+['✦','◎','◇','✶'][i]+'</div><div>'+esc(c)+'</div></div>').join('')+'</div><div class="badge"><div style="font-size:44px">★</div><strong>'+esc(t.badge)+'</strong><p>'+esc(t.success)+'</p><div class="name-line">'+esc(t.name)+' ____________</div><div class="name-line">'+esc(t.sign)+' ____________</div></div>');
+root.innerHTML=cover+coloring+maze+cards;
+}
+q.has('pack')&&packs[q.get('pack')]&&(packSelect.value=q.get('pack'));
+q.get('lang')==='en'&&(langSelect.value='en');
+packSelect.addEventListener('change',render);langSelect.addEventListener('change',render);
+document.getElementById('print').addEventListener('click',()=>window.print());
+render();
+})();
+</script></body></html>
